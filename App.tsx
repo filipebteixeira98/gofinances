@@ -1,7 +1,14 @@
-import React from "react"
+import React from 'react';
+import { ThemeProvider } from 'styled-components/native';
 
-import { Welcome } from "./src/components/Welcome"
+import theme from './src/global/styles/theme';
+
+import { Dashboard } from './src/screens/Dashboard';
 
 export default function App() {
-  return <Welcome title="Bare Workflow with TypeScript is configured!" />
+  return (
+    <ThemeProvider theme={theme}>
+      <Dashboard />
+    </ThemeProvider>
+  );
 }
