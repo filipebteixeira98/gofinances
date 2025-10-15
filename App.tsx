@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import {
   useFonts,
@@ -13,19 +13,29 @@ import theme from './src/global/styles/theme';
 import { Dashboard } from './src/screens/Dashboard';
 
 export default function App() {
-  SplashScreen.preventAutoHideAsync();
-
   const [isFontLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,
     Poppins_700Bold,
   });
 
-  if (!isFontLoaded) {
-    return null;
-  }
+  useEffect(() => {
+    const showSplashScreen = async () => {
+      await SplashScreen.preventAutoHideAsync();
+    };
 
-  SplashScreen.hideAsync();
+    showSplashScreen();
+  }, []);
+
+  useEffect(() => {
+    const hideSplashScreen = async () => {
+      await SplashScreen.hideAsync();
+    };
+
+    if (isFontLoaded) hideSplashScreen();
+  }, [isFontLoaded]);
+
+  if (!isFontLoaded) return null;
 
   return (
     <ThemeProvider theme={theme}>
