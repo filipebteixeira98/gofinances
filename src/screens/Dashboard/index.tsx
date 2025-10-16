@@ -1,11 +1,32 @@
 import React from 'react';
 
-import { Container, Title } from './styles';
+import {
+  Container,
+  Header,
+  Wrapper,
+  UserInfo,
+  Photo,
+  User,
+  UserGreeting,
+  UserName,
+} from './styles';
 
 export function Dashboard() {
   return (
     <Container>
-      <Title>Dashboard</Title>
+      <Header>
+        <Wrapper>
+          <UserInfo>
+            <Photo
+              source={{ uri: 'https://github.com/filipebteixeira98.png' }}
+            />
+            <User>
+              <UserGreeting>Hello,</UserGreeting>
+              <UserName>John</UserName>
+            </User>
+          </UserInfo>
+        </Wrapper>
+      </Header>
     </Container>
   );
 }
