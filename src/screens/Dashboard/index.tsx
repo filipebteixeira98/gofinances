@@ -23,6 +23,7 @@ import { TransactionCard } from '../../components/TransactionCard';
 export function Dashboard() {
   const transactionCardData = [
     {
+      type: 'positive',
       title: 'Website Development',
       amount: '$12,000.00',
       category: {
@@ -30,6 +31,26 @@ export function Dashboard() {
         icon: 'dollar-sign',
       },
       date: '04/13/2025',
+    },
+    {
+      type: 'negative',
+      title: 'Hamburger',
+      amount: '$59.00',
+      category: {
+        name: 'Food',
+        icon: 'coffee',
+      },
+      date: '04/14/2025',
+    },
+    {
+      type: 'negative',
+      title: 'Apartment Rent',
+      amount: '$1,200.00',
+      category: {
+        name: 'Home',
+        icon: 'shopping-bag',
+      },
+      date: '04/15/2025',
     },
   ];
 
